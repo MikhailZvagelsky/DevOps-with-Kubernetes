@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-output-deployment
+  labels:
+    app: log-output
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-output_app
+  template:
+    metadata:
+      labels:
+        app: log-output_app
+    spec:
+      containers:
+      - name: log-output-container
+        image: mikhailzvagelsky/log_output:1.0.0 
